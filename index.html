@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css"
+    />
+    <style>
+        body {
+            background-image: url('wallpaper.jpg');
+            background-attachment: fixed;
+            /* Center the background image */
+            background-position: center;
+            /* Set the background image to no repeat */
+            background-repeat: no-repeat;
+            /* Scale the background image to be as large as possible */
+            background-size: cover;
+        }
+
+        .button-div {
+            margin: 10px 0 10px 0;
+        }
+
+        .task-list-div {
+            margin-left: 20px;
+        }
+
+        .task-div {
+            margin: 10px 0 10px 0;
+        }
+
+        .done a {
+            text-decoration: line-through;
+        }
+        .container {
+            width: 500px;
+            background-color: rgba(255, 255, 255, 0.781);
+            min-height: 100%;
+            height: 100%;
+        }
+    </style>
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div class="container" style="margin-top:50px;">
+        <div id="tasklistpage">
+            <div class="row justify-content-md-center">
+                <div class="col-md-12">
+                    <h1>To Do List</h1>
+                    <div class="button-div">
+                        <button id="showaddpagebtn" class="btn btn-primary btn-lg active btn-sm">Add To Do</a>
+                    </div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="today-tab" data-toggle="tab" href="#today" role="tab" aria-controls="home" aria-selected="true">Today</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tomorrow-tab" data-toggle="tab" href="#tomorrow" role="tab" aria-controls="profile" aria-selected="false">Tomorrow</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="future-tab" data-toggle="tab" href="#future" role="tab" aria-controls="contact" aria-selected="false">Future</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="past-tab" data-toggle="tab" href="#past" role="tab" aria-controls="contact" aria-selected="false">Past</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
+                            <div class="task-list-div">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tomorrow" role="tabpanel" aria-labelledby="tomorrow-tab">
+                            <div class="task-list-div">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="future" role="tabpanel" aria-labelledby="future-tab">
+                            <div class="task-list-div">
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
+                            <div class="task-list-div">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="addpage">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1>Add New To Do Item</h1>
+                    <form id="itemForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="taskName" placeholder="name" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" rows="3"></textarea>
+                        </div>
+                        <div style="overflow:hidden;">
+                            <div class="form-group">
+                                <div id="timedue"></div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#timedue').datetimepicker({
+                                    inline: true,
+                                    sideBySide: true
+                                });
+                            });
+                        </script>
+                        <button type="button" class="btn btn-primary mb-2" id="addTaskBtn">Add</button>
+                        <button type="button" class="btn btn-secondary mb-2" id="cancelAddTaskBtn">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="edittaskpage">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1>Edit New To Do Item</h1>
+                    <form>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="edit-task-id-input" value="">
+                            <input type="text" class="form-control" id="edit-task-name-input" placeholder="name" value="" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-task-desc-input">Description</label>
+                            <textarea class="form-control" id="edit-task-desc-input" rows="3"></textarea>
+                        </div>
+                        <div style="overflow:hidden;">
+                            <div class="form-group">
+                                <div id="timedue-edit-task"></div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#timedue-edit-task').datetimepicker({
+                                    inline: true,
+                                    sideBySide: true
+                                });
+                            });
+                        </script>
+                        <button class="btn btn-primary mb-2" id="edit-task-btn">Update</button>
+                        <button class="btn btn-secondary mb-2" id="cancel-edit-task-btn">Cancel</button>
+                    </form>
+                    <hr />
+                    <h1>Delete</h1>
+                    <form>
+                        <button type="submit" class="btn btn-primary mb-2" id="delete-task-btn">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="todo.js"></script>
+</body>
+
+</html>
