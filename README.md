@@ -1,37 +1,22 @@
-## Welcome to GitHub Pages
+# To-Do List
 
-You can use the [editor on GitHub](https://github.com/wanying0010/to-do-list/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+To-Do List is a single-page application for users to manage their daily tasks and events.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Motivation
 
-### Markdown
+With this user-friendly application, everyone can add, modify and track his or her to-dos in a single place based on the tasks due time as well as their categories in a more productive way.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Code style
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-```markdown
-Syntax highlighted code block
+## Tech/framework used
+Built with
+- [Bootstrap](https://getbootstrap.com)
+- [jQuery](https://jquery.com/)
+- [Moment.js](https://momentjs.com/)
 
-# Header 1
-## Header 2
-### Header 3
+## How to use?
+Click [Here](https://wanying0010.github.io/to-do-list/) to explore the application and start to create your first to-do. Enjoy and have fun!
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/wanying0010/to-do-list/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
